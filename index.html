@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kirankumar Ashokkumar - Software Engineer Portfolio</title>
+    <title>Kirankumar Ashokkumar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -11,41 +12,46 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            color: #e2e8f0;
+            background: #0f172a;
+            font-weight: 400;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 2rem;
         }
 
+        /* Header */
         header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
             position: fixed;
-            width: 100%;
             top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
+            padding: 1.5rem 0;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #667eea;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #f8fafc;
         }
 
         .nav-links {
@@ -55,165 +61,321 @@
         }
 
         .nav-links a {
+            color: #94a3b8;
             text-decoration: none;
-            color: #333;
-            font-weight: 500;
+            font-weight: 400;
+            font-size: 0.9rem;
             transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: #667eea;
+            color: #f8fafc;
         }
 
+        /* Hero Section */
         .hero {
-            padding: 120px 0 80px;
-            text-align: center;
-            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 6rem 0;
+        }
+
+        .hero-content {
+            max-width: 800px;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+            font-size: 4rem;
+            font-weight: 700;
+            color: #f8fafc;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
             opacity: 0;
             animation: fadeInUp 1s ease forwards 0.2s;
         }
 
-        .hero p {
-            font-size: 1.3rem;
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: #64748b;
             margin-bottom: 2rem;
+            font-weight: 400;
             opacity: 0;
             animation: fadeInUp 1s ease forwards 0.4s;
         }
 
-        .cta-button {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 50px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s ease;
+        .hero .description {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            margin-bottom: 3rem;
+            line-height: 1.7;
+            max-width: 600px;
             opacity: 0;
             animation: fadeInUp 1s ease forwards 0.6s;
         }
 
-        .cta-button:hover {
-            background: rgba(255, 255, 255, 0.3);
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.8s;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: 1px solid;
+        }
+
+        .btn-primary {
+            background: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+            border-color: #2563eb;
             transform: translateY(-2px);
         }
 
-        .section {
-            padding: 80px 0;
-            background: white;
+        .btn-secondary {
+            background: transparent;
+            color: #94a3b8;
+            border-color: #475569;
         }
 
-        .section:nth-child(even) {
-            background: #f8f9fa;
+        .btn-secondary:hover {
+            color: #f8fafc;
+            border-color: #64748b;
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 6rem 0;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+            text-align: center;
         }
 
         .section-title {
-            text-align: center;
             font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #333;
+            font-weight: 600;
+            color: #f8fafc;
+            margin-bottom: 1rem;
         }
 
-        .about-content {
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about-grid {
             display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            align-items: center;
+            grid-template-columns: 300px 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .profile-card {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
         }
 
         .profile-img {
-            width: 250px;
-            height: 250px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid #667eea;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
+            margin: 0 auto 1.5rem;
+            border: 3px solid rgba(59, 130, 246, 0.3);
         }
 
-        .profile-img:hover {
-            transform: scale(1.05);
+        .profile-card h3 {
+            color: #f8fafc;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
         }
 
-        .about-text {
+        .profile-card p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .social-link:hover {
+            background: #3b82f6;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .about-content {
             font-size: 1.1rem;
             line-height: 1.8;
+            color: #cbd5e1;
         }
 
+        .about-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Skills Section */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
         }
 
-        .skill-card {
-            background: white;
+        .skill-category {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            border-radius: 1rem;
             padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
 
-        .skill-card:hover {
+        .skill-category:hover {
+            border-color: rgba(59, 130, 246, 0.3);
             transform: translateY(-5px);
         }
 
         .skill-icon {
-            font-size: 3rem;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .skill-category h3 {
+            color: #f8fafc;
+            font-size: 1.25rem;
+            font-weight: 600;
             margin-bottom: 1rem;
         }
 
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: rgba(59, 130, 246, 0.1);
+            color: #93c5fd;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Projects Section */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 3rem;
         }
 
         .project-card {
-            background: white;
-            border-radius: 15px;
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.05), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .project-card:hover::before {
+            left: 100%;
         }
 
         .project-card:hover {
+            border-color: rgba(59, 130, 246, 0.3);
             transform: translateY(-5px);
         }
 
-        .project-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
+        .project-header {
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-icon {
             font-size: 2rem;
+            margin-right: 1rem;
+            animation: bounce 2s ease-in-out infinite;
         }
 
-        .project-content {
-            padding: 2rem;
-        }
-
-        .project-title {
+        .project-card h3 {
+            color: #f8fafc;
             font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #333;
+            font-weight: 600;
         }
 
         .project-description {
-            color: #666;
+            color: #cbd5e1;
+            font-size: 1rem;
+            line-height: 1.7;
             margin-bottom: 1.5rem;
-            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .tech-tag {
+            background: rgba(100, 116, 139, 0.2);
+            color: #94a3b8;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.8rem;
+            font-weight: 500;
         }
 
         .project-links {
@@ -222,66 +384,154 @@
         }
 
         .project-link {
-            padding: 8px 16px;
-            border-radius: 25px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
             text-decoration: none;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
             font-weight: 500;
             transition: all 0.3s ease;
         }
 
-        .project-link.primary {
-            background: #667eea;
+        .project-link:hover {
+            background: #3b82f6;
             color: white;
         }
 
-        .project-link.primary:hover {
-            background: #5a67d8;
+        /* Experience Section */
+        .experience-timeline {
+            position: relative;
         }
 
-        .project-link.secondary {
-            background: #e2e8f0;
-            color: #667eea;
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 3rem;
+            border-left: 2px solid rgba(148, 163, 184, 0.2);
         }
 
-        .project-link.secondary:hover {
-            background: #cbd5e0;
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            background: #3b82f6;
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
         }
 
-        .contact-content {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
+        .experience-card {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            border-radius: 1rem;
+            padding: 2rem;
         }
 
-        .contact-info {
+        .experience-header {
+            margin-bottom: 1rem;
+        }
+
+        .job-title {
+            color: #f8fafc;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .company {
+            color: #3b82f6;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .duration {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+
+        .experience-description {
+            color: #cbd5e1;
+            line-height: 1.7;
+        }
+
+        .experience-description ul {
+            margin-left: 1rem;
+        }
+
+        .experience-description li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .contact-info h3 {
+            color: #f8fafc;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            color: #94a3b8;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .contact-methods {
             display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 1rem;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            color: #667eea;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            border-radius: 0.75rem;
+            color: #cbd5e1;
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .contact-item:hover {
-            color: #5a67d8;
+            border-color: rgba(59, 130, 246, 0.3);
+            background: rgba(59, 130, 246, 0.05);
         }
 
+        .contact-item-icon {
+            font-size: 1.25rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* Footer */
         footer {
-            background: #2d3748;
-            color: white;
+            background: rgba(15, 23, 42, 0.8);
+            border-top: 1px solid rgba(148, 163, 184, 0.1);
+            padding: 3rem 0;
             text-align: center;
-            padding: 2rem 0;
         }
 
+        footer p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -293,7 +543,39 @@
             }
         }
 
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0px) scale(1);
+            }
+            50% {
+                transform: translateY(-3px) scale(1.05);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
             .nav-links {
                 display: none;
             }
@@ -302,18 +584,27 @@
                 font-size: 2.5rem;
             }
 
-            .about-content {
-                grid-template-columns: 1fr;
-                text-align: center;
+            .hero .subtitle {
+                font-size: 1.25rem;
             }
 
-            .contact-info {
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
                 flex-direction: column;
-                align-items: center;
+                align-items: flex-start;
             }
 
-            .projects-grid {
-                grid-template-columns: 1fr;
+            .btn {
+                width: fit-content;
             }
         }
     </style>
@@ -325,6 +616,7 @@
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -334,21 +626,120 @@
 
     <section id="home" class="hero">
         <div class="container">
-            <h1>Hello, I'm Kirankumar Ashokkumar</h1>
-            <p>Software Engineer & Machine Learning Enthusiast</p>
-            <a href="#projects" class="cta-button">View My Work</a>
+            <div class="hero-content">
+                <h1>Kirankumar Ashokkumar</h1>
+                <p class="subtitle">Software Engineer & Machine Learning Enthusiast</p>
+                <p class="description">
+                    I design Python and Kubernetes-based automation software for manufacturing processes, 
+                    build AI-powered solutions, and create innovative systems that bridge the gap between 
+                    complex technology and real-world applications.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
         </div>
     </section>
 
     <section id="about" class="section">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" alt="Profile" class="profile-img">
-                <div class="about-text">
-                    <p>I'm a passionate Software Engineer with 2+ years of experience at Hyve Solutions, where I design Python and Kubernetes-based automation software for manufacturing processes. I hold a B.S. in Computer Science and Engineering from UC Merced with a 3.8 GPA and a minor in Applied Mathematics.</p>
-                    <p>My expertise spans from building ML pipelines for asteroid detection at Lawrence Livermore National Laboratory to creating innovative debug assistants using LangChain and Gemini. I've worked on everything from automated quality control systems with robotic arms to anomaly detection in network traffic data at Rakuten Mobile.</p>
-                    <p>I'm particularly passionate about the intersection of AI, automation, and real-world problem solving, with recognition including the Hyve Solution Innovation Award for my debug assistant project.</p>
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">
+                    Building intelligent systems that solve real-world problems
+                </p>
+            </div>
+            <div class="about-grid">
+                <div class="profile-card">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face" alt="Profile" class="profile-img">
+                    <h3>Kirankumar Ashokkumar</h3>
+                    <p>Software Engineer at Hyve Solutions</p>
+                    <div class="social-links">
+                        <a href="mailto:kirankashok@gmail.com" class="social-link" title="Email">📧</a>
+                        <a href="https://github.com/akiran703" class="social-link" title="GitHub">💻</a>
+                        <a href="https://linkedin.com/in/kirankumar-ashokkumar" class="social-link" title="LinkedIn">💼</a>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <p>
+                        I'm a passionate Software Engineer with 2+ years of experience at Hyve Solutions, 
+                        where I design Python and Kubernetes-based automation software for manufacturing 
+                        processes. I hold a B.S. in Computer Science and Engineering from UC Merced with 
+                        a 3.8 GPA and a minor in Applied Mathematics.
+                    </p>
+                    <p>
+                        My expertise spans from building ML pipelines for asteroid detection at Lawrence 
+                        Livermore National Laboratory to creating innovative debug assistants using 
+                        LangChain and Gemini. I've worked on everything from automated quality control 
+                        systems with robotic arms to anomaly detection in network traffic data at Rakuten Mobile.
+                    </p>
+                    <p>
+                        I'm particularly passionate about the intersection of AI, automation, and real-world 
+                        problem solving, with recognition including the Hyve Solution Innovation Award for 
+                        my debug assistant project that reduced server repair time by 33%.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Experience</h2>
+                <p class="section-subtitle">
+                    My professional journey in software engineering and data science
+                </p>
+            </div>
+            <div class="experience-timeline">
+                <div class="timeline-item">
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div class="job-title">Software Engineer</div>
+                            <div class="company">Hyve Solutions</div>
+                            <div class="duration">April 2023 - Present</div>
+                        </div>
+                        <div class="experience-description">
+                            <ul>
+                                <li>Designed Python and Kubernetes-based automation software for manufacturing processes, testing BMC, BIOS, CPLD, HostNIC cards, DIMMS, drives, CPUs, and GPUs across 50+ project SKUs</li>
+                                <li>Engineered an automated quality control system using a robotic arm with an image classification model to detect faulty cable connections on 250+ servers, reducing repair time from 3 days to 1 day with 90% accuracy</li>
+                                <li>Created a debug assistant (LangChain/Gemini/Neo4j) that guides technicians through component-based troubleshooting, reducing average server repair time by 33% and earning the Hyve Solution Innovation Award</li>
+                                <li>Automated data collection by implementing a sentence transformer model to compare new written documentation against existing nodes, extracting novel debug steps</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div class="job-title">Data Science Intern</div>
+                            <div class="company">Rakuten Mobile</div>
+                            <div class="duration">May 2022 - September 2023</div>
+                        </div>
+                        <div class="experience-description">
+                            <ul>
+                                <li>Reduced network traffic by utilizing an additive model to predict anomalies in time series data, achieving an RMSE of 0.88</li>
+                                <li>Analyzed 100+ data features to identify multivariate anomalies with an isolation forest algorithm</li>
+                                <li>Developed high-performance data processing scripts utilizing multithreading to handle over 1 million data points</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div class="job-title">Data Science Intern</div>
+                            <div class="company">Lawrence Livermore National Laboratory</div>
+                            <div class="duration">April 2021 - May 2021</div>
+                        </div>
+                        <div class="experience-description">
+                            <ul>
+                                <li>Developed an ML pipeline to detect asteroids from raw observatory data by breaking the image into sub-images and looking for high pixel values, indicating potential asteroids</li>
+                                <li>Constructed two CNN models, using Python and Tensorflow, to process the sub-images to determine if an asteroid is present, obtaining a 97% precision and 92% recall</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -356,37 +747,83 @@
 
     <section id="skills" class="section">
         <div class="container">
-            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="section-header">
+                <h2 class="section-title">Skills & Technologies</h2>
+                <p class="section-subtitle">
+                    The tools and technologies I use to bring ideas to life
+                </p>
+            </div>
             <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon">🐍</div>
+                <div class="skill-category">
+                    <span class="skill-icon">🐍</span>
                     <h3>Python & ML</h3>
-                    <p>Python, TensorFlow, Keras, PyTorch, Scikit-learn, NumPy, Pandas</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Keras</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">Pandas</span>
+                    </div>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">☁️</div>
+                <div class="skill-category">
+                    <span class="skill-icon">☁️</span>
                     <h3>DevOps & Cloud</h3>
-                    <p>Kubernetes, Docker, Git, Bash, MongoDB, SQL</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Bash</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">SQL</span>
+                    </div>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">🤖</div>
+                <div class="skill-category">
+                    <span class="skill-icon">🤖</span>
                     <h3>AI & Data Science</h3>
-                    <p>LangChain, Neo4j, Computer Vision, Time Series Analysis</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">LangChain</span>
+                        <span class="skill-tag">Neo4j</span>
+                        <span class="skill-tag">Computer Vision</span>
+                        <span class="skill-tag">Time Series</span>
+                        <span class="skill-tag">NLP</span>
+                    </div>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">💻</div>
+                <div class="skill-category">
+                    <span class="skill-icon">💻</span>
                     <h3>Development</h3>
-                    <p>C++, Java, JavaScript, React, Node.js, Flask, HTML/CSS</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                    </div>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">📊</div>
+                <div class="skill-category">
+                    <span class="skill-icon">📊</span>
                     <h3>Data & Analytics</h3>
-                    <p>Tableau, R, Matlab, Excel, Statistical Analysis</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Tableau</span>
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">Matlab</span>
+                        <span class="skill-tag">Excel</span>
+                        <span class="skill-tag">Statistics</span>
+                    </div>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">🔧</div>
+                <div class="skill-category">
+                    <span class="skill-icon">🔧</span>
                     <h3>Tools & Frameworks</h3>
-                    <p>Jira, Bitbucket, ROS, IsaacSim, Express</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Jira</span>
+                        <span class="skill-tag">Bitbucket</span>
+                        <span class="skill-tag">ROS</span>
+                        <span class="skill-tag">IsaacSim</span>
+                        <span class="skill-tag">Express</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -394,66 +831,139 @@
 
     <section id="projects" class="section">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">
+                    A showcase of my work in AI, automation, and software engineering
+                </p>
+            </div>
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-image">🤖</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Hardware Debug Assistant</h3>
-                        <p class="project-description">AI-powered debug assistant using LangChain, Gemini, and Neo4j that guides technicians through component-based troubleshooting. Reduced server repair time by 33% and won the Hyve Solution Innovation Award.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/akiran703/hardware_agent" class="project-link secondary">GitHub</a>
-                        </div>
+                    <div class="project-header">
+                        <span class="project-icon">🤖</span>
+                        <h3>Hardware Debug Assistant</h3>
+                    </div>
+                    <p class="project-description">
+                        AI-powered debug assistant using LangChain, Gemini, and Neo4j that guides technicians through component-based troubleshooting. Reduced server repair time by 33% and won the Hyve Solution Innovation Award.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">LangChain</span>
+                        <span class="tech-tag">Gemini</span>
+                        <span class="tech-tag">Neo4j</span>
+                        <span class="tech-tag">AI</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/akiran703/hardware_agent" class="project-link">
+                            💻 GitHub
+                        </a>
                     </div>
                 </div>
+                
                 <div class="project-card">
-                    <div class="project-image">🏥</div>
-                    <div class="project-content">
-                        <h3 class="project-title">COVID-19 Detection CNNs</h3>
-                        <p class="project-description">Multi-input and single-input CNNs with patient ID aggregation for COVID-19 detection. Achieved 92% sensitivity using Keras and Python, supported by UROC SOAR Scholarship research.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/akiran703/MultiInputPatientApproach" class="project-link secondary">GitHub</a>
-                        </div>
+                    <div class="project-header">
+                        <span class="project-icon">🏥</span>
+                        <h3>COVID-19 Detection CNNs</h3>
+                    </div>
+                    <p class="project-description">
+                        Multi-input and single-input CNNs with patient ID aggregation for COVID-19 detection. Achieved 92% sensitivity using Keras and Python, supported by UROC SOAR Scholarship research.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Keras</span>
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">CNN</span>
+                        <span class="tech-tag">Medical AI</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/akiran703/MultiInputPatientApproach" class="project-link">
+                            💻 GitHub
+                        </a>
                     </div>
                 </div>
+                
                 <div class="project-card">
-                    <div class="project-image">🚀</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Asteroid Detection ML Pipeline</h3>
-                        <p class="project-description">Machine learning pipeline to detect asteroids from raw observatory data using CNN models with TensorFlow. Achieved 97% precision and 92% recall by processing sub-images for high pixel value detection.</p>
-                        <div class="project-links">
-                            <a href="#" class="project-link primary">Research Project</a>
-                        </div>
+                    <div class="project-header">
+                        <span class="project-icon">🚀</span>
+                        <h3>Asteroid Detection ML Pipeline</h3>
+                    </div>
+                    <p class="project-description">
+                        Machine learning pipeline to detect asteroids from raw observatory data using CNN models with TensorFlow. Achieved 97% precision and 92% recall by processing sub-images for high pixel value detection.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">CNN</span>
+                        <span class="tech-tag">Computer Vision</span>
+                        <span class="tech-tag">Astronomy</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            🔬 Research Project
+                        </a>
                     </div>
                 </div>
+                
                 <div class="project-card">
-                    <div class="project-image">🎮</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Elden Ring Reinforcement Learning</h3>
-                        <p class="project-description">Reinforcement learning project exploring AI gameplay strategies in Elden Ring using Python. Combines gaming with advanced ML techniques for autonomous decision making.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/akiran703/elden_ring_RL" class="project-link secondary">GitHub</a>
-                        </div>
+                    <div class="project-header">
+                        <span class="project-icon">🎮</span>
+                        <h3>Elden Ring Reinforcement Learning</h3>
+                    </div>
+                    <p class="project-description">
+                        Reinforcement learning project exploring AI gameplay strategies in Elden Ring using Python. Combines gaming with advanced ML techniques for autonomous decision making.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Reinforcement Learning</span>
+                        <span class="tech-tag">Game AI</span>
+                        <span class="tech-tag">OpenCV</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/akiran703/elden_ring_RL" class="project-link">
+                            💻 GitHub
+                        </a>
                     </div>
                 </div>
+                
                 <div class="project-card">
-                    <div class="project-image">📊</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Network Anomaly Detection</h3>
-                        <p class="project-description">Time series anomaly detection system using additive models and isolation forests. Analyzed 100+ data features to predict network traffic anomalies with RMSE of 0.88 at Rakuten Mobile.</p>
-                        <div class="project-links">
-                            <a href="#" class="project-link primary">Professional Project</a>
-                        </div>
+                    <div class="project-header">
+                        <span class="project-icon">📊</span>
+                        <h3>Network Anomaly Detection</h3>
+                    </div>
+                    <p class="project-description">
+                        Time series anomaly detection system using additive models and isolation forests. Analyzed 100+ data features to predict network traffic anomalies with RMSE of 0.88 at Rakuten Mobile.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Time Series</span>
+                        <span class="tech-tag">Anomaly Detection</span>
+                        <span class="tech-tag">Machine Learning</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            💼 Professional Project
+                        </a>
                     </div>
                 </div>
+                
                 <div class="project-card">
-                    <div class="project-image">🔧</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Agentic SO-101</h3>
-                        <p class="project-description">Python-based agentic system exploring autonomous software operations and intelligent automation patterns. Demonstrates advanced agent-based computing concepts.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/akiran703/agentic_SO-101" class="project-link secondary">GitHub</a>
-                        </div>
+                    <div class="project-header">
+                        <span class="project-icon">🔧</span>
+                        <h3>Agentic SO-101</h3>
+                    </div>
+                    <p class="project-description">
+                        Python-based agentic system exploring autonomous software operations and intelligent automation patterns. Demonstrates advanced agent-based computing concepts.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Agent Systems</span>
+                        <span class="tech-tag">Automation</span>
+                        <span class="tech-tag">AI</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/akiran703/agentic_SO-101" class="project-link">
+                            💻 GitHub
+                        </a>
                     </div>
                 </div>
             </div>
@@ -462,22 +972,54 @@
 
     <section id="contact" class="section">
         <div class="container">
-            <h2 class="section-title">Let's Connect</h2>
-            <div class="contact-content">
-                <p>I'm always interested in new opportunities and interesting projects. Let's build something amazing together!</p>
+            <div class="section-header">
+                <h2 class="section-title">Let's Connect</h2>
+                <p class="section-subtitle">
+                    I'm always interested in new opportunities and interesting projects
+                </p>
+            </div>
+            <div class="contact-grid">
                 <div class="contact-info">
-                    <a href="mailto:kirankashok@gmail.com" class="contact-item">
-                        <span>📧</span>
-                        kirankashok@gmail.com
-                    </a>
-                    <a href="https://github.com/akiran703" class="contact-item">
-                        <span>💻</span>
-                        GitHub
-                    </a>
-                    <a href="https://linkedin.com/in/kirankumar-ashokkumar" class="contact-item">
-                        <span>💼</span>
-                        LinkedIn
-                    </a>
+                    <h3>Get In Touch</h3>
+                    <p>
+                        Whether you have a project in mind, want to collaborate, or just want to say hello, 
+                        I'd love to hear from you. Let's build something amazing together!
+                    </p>
+                    <div class="contact-methods">
+                        <a href="mailto:kirankashok@gmail.com" class="contact-item">
+                            <span class="contact-item-icon">📧</span>
+                            <div>
+                                <strong>Email</strong>
+                                <br>
+                                <small>kirankashok@gmail.com</small>
+                            </div>
+                        </a>
+                        <a href="https://github.com/akiran703" class="contact-item">
+                            <span class="contact-item-icon">💻</span>
+                            <div>
+                                <strong>GitHub</strong>
+                                <br>
+                                <small>@akiran703</small>
+                            </div>
+                        </a>
+                        <a href="https://linkedin.com/in/kirankumar-ashokkumar" class="contact-item">
+                            <span class="contact-item-icon">💼</span>
+                            <div>
+                                <strong>LinkedIn</strong>
+                                <br>
+                                <small>Kirankumar Ashokkumar</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <div style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(148, 163, 184, 0.1); border-radius: 1rem; padding: 3rem; height: 100%; display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 4rem; margin-bottom: 1rem; animation: float 3s ease-in-out infinite;">🚀</div>
+                            <h4 style="color: #f8fafc; font-size: 1.25rem; margin-bottom: 0.5rem;">Ready to collaborate?</h4>
+                            <p style="color: #94a3b8;">Let's create something innovative together!</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -504,17 +1046,17 @@
             });
         });
 
-        // Add scroll effect to header
+        // Header background on scroll
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(15, 23, 42, 0.98)';
             } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.background = 'rgba(15, 23, 42, 0.95)';
             }
         });
 
-        // Animate skill cards on scroll
+        // Intersection Observer for animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -529,12 +1071,21 @@
             });
         }, observerOptions);
 
-        // Observe skill cards and project cards
-        document.querySelectorAll('.skill-card, .project-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
+        // Animate elements on scroll
+        document.querySelectorAll('.skill-category, .project-card, .experience-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Add staggered animation delays
+        document.querySelectorAll('.skill-category').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        document.querySelectorAll('.project-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.2}s`;
         });
     </script>
 </body>
